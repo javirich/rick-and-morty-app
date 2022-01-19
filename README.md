@@ -1,2 +1,18 @@
-# rick-and-morty-app
- Wiki Rick and Morty Characters - Technical Test Devaway
+# Wiki Rick and Morty Characters - Technical Test Devaway
+            ___          
+        . -^   `--,      
+    /# =========`-_   
+    /# (--====___====\ 
+    /#   .- --.  . --.| 
+    /##   |  * ) (   * ),
+    |##   \    /\ \   / |
+    |###   ---   \ ---  |
+    |####      ___)    #|
+    |######           ##|
+    \##### ---------- / 
+    \####           (  
+    `\###          |  
+        \###         |  
+        \##        |   
+        \###.    .)   
+            `======/ 
