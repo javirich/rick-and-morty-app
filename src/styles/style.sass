@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap')
+
+$headerHeight: 20vh
+$headerOffset: 3vh
+
+$avatarSize: 40%
+$avatarOffset: 2rem
+
+$dark: #000808
+$primary: #004d47
+$secondary: #20752f
+
+$font-family-sans-serif:  "Lato"
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body
+    margin: 0
+
+h1
+    font-weight: 900!important
+    text-shadow: 2px 0px 10px black
+    font-size: 3.5rem !important
+
+
+.bg-rick-and-morty
+    height: $headerHeight + $headerOffset
+    background-image: url(/assets/wallpaper.png)
+    background-size: cover
+    background-position: 50% 60%
+
+#mainContainer
+    margin-top: -$headerOffset
+    min-height: calc(100vh - #{$headerHeight})
+    background-color: $dark
+    box-shadow: 0px 100px 100px white
+    border-radius: 2em 2em 0  0
+    z-index: 10
+
+.card
+    margin-top: $avatarOffset
+
+    &-info
+        margin-top: calc(#{$avatarSize} - #{$avatarOffset})
+
+    &-avatar
+        border-radius: 50%
+        width: $avatarSize
+        border: 6px solid white
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        margin-top: -$avatarOffset
+
+.spacer-y
+    min-height: 5rem
+
+.lift
+    transition: box-shadow .25s ease, transform .25s ease
+
+    &:focus,&:hover
+        box-shadow: 0 1rem 2.5rem #ffffff1a,0 .5rem 1rem -.75rem #ffffff1a!important
+        transform: translate3d(0,-3px,0)
+
