@@ -1,29 +1,32 @@
-import { useState, useEffect } from 'react'
-import { getAllCharacters } from '../helpers/getCharacters';
+import propTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 
-export const useFetchData= ( page ) => {
+export const useFetchCharacters= ( fx, params ) => {
 
     const [state, setState] = useState({
-        data: [],
-        pagination: {},
+        data: {},
         loadig: true
     });
 
     useEffect(() => {
 
-        getAllCharacters( page )
+        fx( params )
             .then( response => {
 
                 setState({
-                    data: response.characters,
-                    pagination: response.pagination,
+                    data: response,
                     loading: false
                 });
 
             })
 
-    }, [ page ]);
+    }, Object.values(params) );
 
     return state;
 
 };
+
+useFetchCharacters.propTypes = {
+    fx: propTypes.func.isRequired,
+    params: propTypes.array
+}

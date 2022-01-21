@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useParams, Navigate, useNavigate } from 'react-router-dom'
 import { getCharacterById } from '../helpers/getCharacters';
+import { useFetchCharacters } from '../hooks/useFetchCharacters';
 
 
 export const CharacterScreen = () => {
@@ -8,8 +9,8 @@ export const CharacterScreen = () => {
     const { characterId } = useParams();
     const navigate = useNavigate()
 
-    const character = useMemo( () => getCharacterById(characterId), [ characterId ]);
-    
+    const { data:character, loading } = useFetchCharacters( getCharacterById, { id: characterId } );
+
     const handleReturn = () => {
         navigate( -1 );
     }

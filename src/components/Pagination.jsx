@@ -1,10 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import propTypes from 'prop-types';
 
-export const Pagination = ({ pagination, currentPage, setPage }) => {
+export const Pagination = ({ page = '1' , name = '', pagination }) => {
 
-    const decreasePage = () => setPage(page => page - 1);
-    const increasePage = () => setPage(page => page + 1);
+    const navigate = useNavigate();
+
+    const changePage = ( increment ) => {
+        const newPage = parseInt(page) + increment;
+
+        const searchQuery = (name != '')
+            ? `?page=${ newPage }&name=${ name }`
+            : `?page=${ newPage }`;
+
+        navigate(searchQuery);
+    }
 
     return (
         <div className='container fixed-bottom'>
@@ -13,19 +23,19 @@ export const Pagination = ({ pagination, currentPage, setPage }) => {
 
                     <div className='col-auto'>
                         {
-                            pagination.prev
-                                ? <button onClick={decreasePage} className='btn rounded-pill btn-light'> Prev </button>
+                            pagination?.prev
+                                ? <button onClick={ () => changePage(-1) } className='btn rounded-pill btn-light'> Prev </button>
                                 : <button disabled className='btn rounded-pill btn-light disabled'> Prev </button>
                         }
                     </div>
                     <div className='col-auto'>
-                        <p className="text-white mb-0 small fw-bold"> Page {currentPage} of {pagination.pages}</p>
+                        <p className="text-white mb-0 small fw-bold"> Page {page} of {pagination?.pages}</p>
                     </div>
 
                     <div className='col-auto'>
                         {
-                            pagination.next
-                                ? <button onClick={increasePage} className='btn rounded-pill btn-light'> Next </button>
+                            pagination?.next
+                                ? <button onClick={ () => changePage(+1) } className='btn rounded-pill btn-light'> Next </button>
                                 : <button disabled className='btn rounded-pill btn-light disabled'> Next </button>
                         }
                     </div>
@@ -36,8 +46,8 @@ export const Pagination = ({ pagination, currentPage, setPage }) => {
 };
 
 Pagination.propTypes = {
+    page: propTypes.string.isRequired,
+    name: propTypes.string,
     pagination: propTypes.object,
-    currentPage: propTypes.number.isRequired,
-    setPage: propTypes.func.isRequired
 }
 

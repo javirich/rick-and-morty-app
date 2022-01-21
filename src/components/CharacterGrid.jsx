@@ -1,16 +1,17 @@
 import React, {useEffect} from 'react';
 import propTypes from 'prop-types';
 
-import { useFetchData } from '../hooks/useFetchCharacters';
+import { useFetchCharacters } from '../hooks/useFetchCharacters';
+import { getAllCharacters } from '../helpers/getCharacters';
 import { CharacterCard } from './CharacterCard';
 
-export const CharacterGrid = ({ page = 1, setPagination }) => {
+export const CharacterGrid = ({ page = '1' , name = '', setPagination }) => {
 
-    const { data: characters, pagination, loading } = useFetchData(page);
+    const { data : { characters, pagination }, loading } = useFetchCharacters( getAllCharacters, {page: page, name: name} );
 
     useEffect(() => {
         setPagination(pagination);
-    }, [pagination]);
+    }, [pagination, setPagination]);
     
     return (
         <div className="container py-5">
@@ -19,7 +20,7 @@ export const CharacterGrid = ({ page = 1, setPagination }) => {
 
             <div className='row justify-content-center'>
                 {
-                    characters.map(character => (
+                    characters?.map(character => (
                         <CharacterCard
                             key={character.id}
                             {...character}
@@ -36,6 +37,7 @@ export const CharacterGrid = ({ page = 1, setPagination }) => {
 };
 
 CharacterGrid.propTypes = {
-    page: propTypes.number,
+    page: propTypes.string,
+    name: propTypes.string,
     setPagination: propTypes.func.isRequired
 }
