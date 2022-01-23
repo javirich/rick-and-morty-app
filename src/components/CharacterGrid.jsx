@@ -1,20 +1,20 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import propTypes from 'prop-types';
 
 import { useFetchCharacters } from '../hooks/useFetchCharacters';
 import { getAllCharacters } from '../helpers/getCharacters';
 import { CharacterCard } from './CharacterCard';
 
-export const CharacterGrid = ({ page = '1' , name = '', setPagination }) => {
+export const CharacterGrid = ({ page = '1', name = '', setPagination }) => {
 
-    const { data : { characters, pagination }, loading } = useFetchCharacters( getAllCharacters, {page: page, name: name} );
+    const { data: { characters, pagination }, loading } = useFetchCharacters(getAllCharacters, { page: page, name: name });
 
     useEffect(() => {
         setPagination(pagination);
     }, [pagination, setPagination]);
-    
+
     return (
-        <div className="container py-5">
+        <div className="container pt-5">
 
             {loading && <p className='animate__animated animate__flash'>Loading</p>}
 
@@ -29,7 +29,7 @@ export const CharacterGrid = ({ page = '1' , name = '', setPagination }) => {
                 }
             </div>
 
-            <div className='spacer-y'></div>
+
 
         </div>
 

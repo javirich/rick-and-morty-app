@@ -17,6 +17,8 @@ export const getAllCharacters = async ({page, name}) => {
             name: character.name,
             image: character.image,
             status: character.status,
+            species: character.species,
+            gender: character.gender,
         }
     })
 

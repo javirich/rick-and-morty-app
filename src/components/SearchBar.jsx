@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
+import { FiSearch } from 'react-icons/fi';
 
 export const SearchBar = ({ name }) => {
 
@@ -20,7 +21,7 @@ export const SearchBar = ({ name }) => {
     return (
 
         <div className="container">
-            <div className='rounded-pill bg-secondary p-3 shadow'>
+            <div className='rounded-pill bg-primary p-3 shadow'>
 
                 <form onSubmit={handleSearch}>
 
@@ -29,8 +30,8 @@ export const SearchBar = ({ name }) => {
                         <div className='col'>
                             <input
                                 type="text"
-                                placeholder="Search a character"
-                                className="form-control rounded-pill border-0"
+                                placeholder="Search for a character"
+                                className="form-control form-control-sm rounded-pill border-0 px-3"
                                 name="searchText"
                                 autoComplete="off"
                                 value={searchText}
@@ -39,9 +40,9 @@ export const SearchBar = ({ name }) => {
                         </div>
                         <div className='col-auto'>
                             <button
-                                className="btn btn-light"
+                                className="btn rounded-pill btn-dark d-flex align-items-center h-100"
                                 type="submit">
-                                Buscar...
+                                    <FiSearch />
                             </button>
                         </div>
                     </div>

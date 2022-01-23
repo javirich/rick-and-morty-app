@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap')
 
-$headerHeight: 20vh
-$headerOffset: 3vh
+$headerHeight: 15vh
+$headerOffset: 5vh
 
-$avatarSize: 40%
-$avatarOffset: 2rem
+$avatarSize: 45%
+$avatarOffset: 3rem
 
 $dark: #000808
 $primary: #004d47
-$secondary: #20752f
+$secondary: #00857a
+
+$card-border-radius: 1rem
+$card-bg: darken($primary, 7%)
+$card-color: white
 
 $enable-negative-margins: true
 
@@ -31,6 +35,12 @@ h1
     background-size: cover
     background-position: 50% 60%
 
+#overlayContainer
+    margin-top: - $headerOffset
+    margin-bottom: $headerOffset / 2
+    background-color: transparent
+    z-index: 11
+
 #mainContainer
     margin-top: -$headerOffset
     min-height: calc(100vh - #{$headerHeight})
@@ -48,11 +58,14 @@ h1
     &-avatar
         border-radius: 50%
         width: $avatarSize
-        border: 6px solid white
+        border: 10px solid $card-bg
         position: absolute
         left: 50%
         transform: translateX(-50%)
         margin-top: -$avatarOffset
+
+    &-body.bg-white
+        border-radius: 0 0 $card-border-radius $card-border-radius
 
 .spacer-y
     min-height: 5rem
@@ -61,6 +74,6 @@ h1
     transition: box-shadow .25s ease, transform .25s ease
 
     &:focus,&:hover
-        box-shadow: 0 1rem 2.5rem #ffffff1a,0 .5rem 1rem -.75rem #ffffff1a!important
+        box-shadow: 0 .5rem 2.5rem transparentize($secondary, 0.85),0 .5rem 1rem -.75rem transparentize($secondary, 0.85)!important
         transform: translate3d(0,-3px,0)
 

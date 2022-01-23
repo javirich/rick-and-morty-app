@@ -17,15 +17,15 @@ export const Pagination = ({ page = '1' , name = '', pagination }) => {
     }
 
     return (
-        <div className='container fixed-bottom'>
-            <div className='rounded-pill bg-primary p-3 m-5 shadow'>
+        <div className='container mt-5'>
+            <div className='rounded-pill bg-primary p-3 shadow'>
                 <div className='row justify-content-between align-items-center'>
 
                     <div className='col-auto'>
                         {
                             pagination?.prev
-                                ? <button onClick={ () => changePage(-1) } className='btn rounded-pill btn-light'> Prev </button>
-                                : <button disabled className='btn rounded-pill btn-light disabled'> Prev </button>
+                                ? <button onClick={ () => changePage(-1) } className='btn rounded-pill btn-dark fw-bold'> Prev </button>
+                                : <button disabled className='btn rounded-pill btn-dark fw-bold disabled'> Prev </button>
                         }
                     </div>
                     <div className='col-auto'>
@@ -35,8 +35,8 @@ export const Pagination = ({ page = '1' , name = '', pagination }) => {
                     <div className='col-auto'>
                         {
                             pagination?.next
-                                ? <button onClick={ () => changePage(+1) } className='btn rounded-pill btn-light'> Next </button>
-                                : <button disabled className='btn rounded-pill btn-light disabled'> Next </button>
+                                ? <button onClick={ () => changePage(+1) } className='btn rounded-pill btn-dark fw-bold'> Next </button>
+                                : <button disabled className='btn rounded-pill btn-dark fw-bold disabled'> Next </button>
                         }
                     </div>
                 </div>
