@@ -19,13 +19,13 @@ export const CharacterCard = ({ id, image, name, status, gender, species }) => {
 
                             <div className='row'>
                                 <div className='col'>
-                                    <CharacterData IconData={FiActivity} label={'Status'} data={status}/> 
+                                    <CharacterData IconData={FiActivity} label={'Status'} data={status} small={true}/> 
                                 </div>
                                 <div className='col'>
-                                    <CharacterData IconData={FiGlobe} label={'Species'} data={species}/> 
+                                    <CharacterData IconData={FiGlobe} label={'Species'} data={species} small={true}/> 
                                 </div>
                                 <div className='col'>
-                                    <CharacterData IconData={FiUser} label={'Gender'} data={gender}/> 
+                                    <CharacterData IconData={FiUser} label={'Gender'} data={gender} small={true}/> 
                                 </div>
                             </div>
                         </div>

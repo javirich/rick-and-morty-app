@@ -28,5 +28,5 @@ export const useFetchCharacters= ( fx, params ) => {
 
 useFetchCharacters.propTypes = {
     fx: propTypes.func.isRequired,
-    params: propTypes.array
+    params: propTypes.object
 }

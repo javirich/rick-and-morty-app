@@ -21,7 +21,7 @@ export const SearchBar = ({ name }) => {
     return (
 
         <div className="container">
-            <div className='rounded-pill bg-primary p-3 shadow'>
+            <div className='rounded-pill bg-secondary p-3 shadow'>
 
                 <form onSubmit={handleSearch}>
 

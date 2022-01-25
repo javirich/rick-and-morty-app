@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 
-
 import { CharacterGrid } from './CharacterGrid';
 import { Pagination } from './Pagination';
 import { SearchBar } from './SearchBar';
+import { Banner } from './Banner';
 
 export const HomeScreen = () => {
 
@@ -16,27 +16,20 @@ export const HomeScreen = () => {
 
     return (
         <>
-            <div id="bannerCointainer" className='bg-rick-and-morty position-relative'>
-                <div className='position-absolute bottom-0 start-50 translate-middle mb-5'>
-                    <h1 className="text-white text-center">
-                        Rick & Morty
-                    </h1>
-
-                    <h2 className="text-white text-center fw-bold">
-                        Characters
-                    </h2>
-                </div>
-            </div>
+            <Banner title={'Rick & Morty'} subtitle={'Characters'} />
 
             <div id="overlayContainer" className='pt-3 sticky-top'>
                 <SearchBar name={name} />
             </div>
 
-            <div id="mainContainer" className='position-relative py-5'>
-                
+            <div id="mainContainer" className='position-relative py-5 bg-dark'>
+
                 <CharacterGrid page={page} name={name} setPagination={setPagination} />
-                <Pagination page={page} name={name} pagination={pagination} />
-                
+
+                {pagination !== null &&
+                    <Pagination page={page} name={name} pagination={pagination} />
+                }
+
             </div>
 
         </>

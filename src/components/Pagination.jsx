@@ -9,7 +9,7 @@ export const Pagination = ({ page = '1' , name = '', pagination }) => {
     const changePage = ( increment ) => {
         const newPage = parseInt(page) + increment;
 
-        const searchQuery = (name != '')
+        const searchQuery = (name !== '')
             ? `?page=${ newPage }&name=${ name }`
             : `?page=${ newPage }`;
 
@@ -18,7 +18,7 @@ export const Pagination = ({ page = '1' , name = '', pagination }) => {
 
     return (
         <div className='container mt-5'>
-            <div className='rounded-pill bg-primary p-3 shadow'>
+            <div className='rounded-pill bg-secondary p-3 shadow'>
                 <div className='row justify-content-between align-items-center'>
 
                     <div className='col-auto'>
@@ -28,7 +28,7 @@ export const Pagination = ({ page = '1' , name = '', pagination }) => {
                                 : <button disabled className='btn rounded-pill btn-dark fw-bold disabled'> Prev </button>
                         }
                     </div>
-                    <div className='col-auto'>
+                    <div className='col-auto px-0'>
                         <p className="text-white mb-0 small fw-bold"> Page {page} of {pagination?.pages}</p>
                     </div>
 

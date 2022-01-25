@@ -7,16 +7,16 @@ import { CharacterCard } from './CharacterCard';
 
 export const CharacterGrid = ({ page = '1', name = '', setPagination }) => {
 
-    const { data: { characters, pagination }, loading } = useFetchCharacters(getAllCharacters, { page: page, name: name });
+    const { data: { characters, pagination }, loading = true } = useFetchCharacters(getAllCharacters, { page: page, name: name });
 
     useEffect(() => {
         setPagination(pagination);
     }, [pagination, setPagination]);
 
     return (
-        <div className="container pt-5">
+        <div className="container pt-2 pt-md-5">
 
-            {loading && <p className='animate__animated animate__flash'>Loading</p>}
+            {loading && <p className='text-white animate__animated animate__flash'>Loading</p>}
 
             <div className='row justify-content-center'>
                 {

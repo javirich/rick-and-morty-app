@@ -7,27 +7,34 @@ $avatarSize: 45%
 $avatarOffset: 3rem
 
 $dark: #000808
-$primary: #004d47
-$secondary: #00857a
+$secondary: #004d47
+$primary: darken($secondary, 5%)
+$info: #00857a
 
 $card-border-radius: 1rem
-$card-bg: darken($primary, 7%)
+$card-bg: $primary
 $card-color: white
 
 $enable-negative-margins: true
 
-$font-family-sans-serif:  "Lato"
+$font-family-sans-serif: "Lato"
 
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap"
 
-body
+html
+    scroll-behavior: auto
+
+#root
+    min-height: 100vh
     margin: 0
+    background-color: $dark
 
 h1
     font-weight: 900!important
     text-shadow: 2px 0px 10px black
     font-size: 3.5rem !important
-
+    @include media-breakpoint-down(md)
+        font-size: 2rem !important
 
 .bg-rick-and-morty
     height: $headerHeight + $headerOffset
@@ -43,10 +50,7 @@ h1
 
 #mainContainer
     margin-top: -$headerOffset
-    min-height: calc(100vh - #{$headerHeight})
-    background-color: $dark
-    box-shadow: 0px 100px 100px white
-    border-radius: 2em 2em 0  0
+    border-radius: 2em 2em 0 0
     z-index: 10
 
 .card
@@ -74,6 +78,9 @@ h1
     transition: box-shadow .25s ease, transform .25s ease
 
     &:focus,&:hover
-        box-shadow: 0 .5rem 2.5rem transparentize($secondary, 0.85),0 .5rem 1rem -.75rem transparentize($secondary, 0.85)!important
+        box-shadow: 0 .5rem 2.5rem transparentize($info, 0.85),0 .5rem 1rem -.75rem transparentize($info, 0.85)!important
         transform: translate3d(0,-3px,0)
 
+.img-thumbnail
+    @include media-breakpoint-down(md)
+        width: 50%
