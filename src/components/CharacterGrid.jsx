@@ -16,7 +16,7 @@ export const CharacterGrid = ({ page = '1', name = '', setPagination }) => {
     return (
         <div className="container pt-2 pt-md-5">
 
-            {loading && <p className='text-white animate__animated animate__flash'>Loading</p>}
+            {loading && <div className='container text-white animate__animated animate__flash text-center'><h5>Loading</h5></div>}
 
             <div className='row justify-content-center'>
                 {

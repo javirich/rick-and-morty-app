@@ -33,7 +33,7 @@ export const CharacterData = ({ IconData, label, data, small = false }) => {
                             </div>
                             <div className='col-12'>
                                 <h5 className="text-center fw-bold mb-0">
-                                    {(data == "") ? "-": data}
+                                    {(data === "") ? "-": data}
                                 </h5>
                             </div>
                         </div>

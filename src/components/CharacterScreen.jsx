@@ -3,7 +3,7 @@ import { getCharacterById } from '../helpers/getCharacters';
 import { useFetchCharacters } from '../hooks/useFetchCharacters';
 import { Banner } from './Banner';
 import { CharacterData } from './CharacterData';
-import { FiInfo, FiActivity, FiUser, FiGlobe, FiHelpCircle, FiMap, FiFlag, FiLayers, FiClock} from "react-icons/fi";
+import { FiInfo, FiActivity, FiUser, FiGlobe, FiHelpCircle, FiMap, FiFlag, FiLayers, FiClock } from "react-icons/fi";
 
 
 export const CharacterScreen = () => {

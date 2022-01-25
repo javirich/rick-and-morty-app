@@ -26,7 +26,9 @@ export const HomeScreen = () => {
 
                 <CharacterGrid page={page} name={name} setPagination={setPagination} />
 
-                {pagination !== null &&
+                {pagination === null && <div className='container text-white text-center'><h5>No results</h5></div> }
+
+                {pagination !== null && pagination?.pages > 1 &&
                     <Pagination page={page} name={name} pagination={pagination} />
                 }
 

@@ -8,7 +8,7 @@ export const getAllCharacters = async ({ page, name }) => {
     const url = `https://rickandmortyapi.com/api/character/${query}`;
 
     const resp = await fetch(url);
-    if (resp.status == '200') {
+    if (resp.status === 200) {
 
         const { info, results } = await resp.json();
         const characters = results.map(character => {
